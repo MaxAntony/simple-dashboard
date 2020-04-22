@@ -22,6 +22,7 @@ app.use(cors());
 // Global variables
 
 // Routes
-app.use(require('./routes/data.route'));
+app.use('/', require('./routes/index.route'));
+app.use('/data', require('./routes/data.route'));
 
 module.exports = app;

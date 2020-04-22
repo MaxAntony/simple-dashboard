@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="public/styles.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js")
+    script(src="public/script.js", defer)
+  body
+    .grid-container
+      .menu-icon
+        i.fas.fa-bars.header__menu
+      header.header
+        .header__search Search...
+        .header__avatar Your face
+      aside.sidenav
+        .sidenav__close-icon
+          span X
+        ul.sidenav__list
+          li.sidenav__list-item Item One
+          li.sidenav__list-item Item Two
+          li.sidenav__list-item Item Three
+          li.sidenav__list-item Item Four
+          li.sidenav__list-item Item Five
+      main.main
+        .main-header
+          .main-header__heading Hello User
+          .main-header__updates Recent Items
+        .main-overview
+          .overviewcard
+            .overviewcard__icon Overview
+              canvas(id="myChart", width="400", height="400")
+            .overviewcard__info Card
+          .overviewcard
+            .overviewcard__icon Overview
+            .overviewcard__info Card
+          .overviewcard
+            .overviewcard__icon Overview
+            .overviewcard__info Card
+          .overviewcard
+            .overviewcard__icon Overview
+            .overviewcard__info Card
+        .main-cards
+          .card Card
+          .card Card
+          .card Card
+      footer.footer
+        .footer__copyright &copy; 2018 MTH
+        .footer__signature Made with love by pure genius
