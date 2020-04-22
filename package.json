@@ -4,8 +4,8 @@
   "description": "simple dashboard",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "cross-env NODE_ENV=production node src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,11 @@
   "homepage": "https://github.com/MaxAntony/simple-dashboard#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "lowdb": "^1.0.0",
+    "mongoose": "^5.9.10",
     "morgan": "^1.10.0",
     "pug": "^2.0.4",
     "uuid": "^7.0.3"

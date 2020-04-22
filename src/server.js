@@ -5,7 +5,7 @@ const path = require('path');
 
 //initializations
 const app = express();
-require('./config/fakeDB.config');
+require('./config/database.config');
 
 // Settings
 app.set('port', process.env.PORT || 4000);
