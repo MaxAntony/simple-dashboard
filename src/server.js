@@ -23,6 +23,6 @@ app.use(cors());
 
 // Routes
 app.use('/', require('./routes/index.route'));
-app.use('/data', require('./routes/data.route'));
+app.use('/api', require('./routes/data.route'));
 
 module.exports = app;

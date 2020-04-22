@@ -1,10 +1,9 @@
 const Data = require('../models/data.model');
 const dataCtrl = {};
 
-dataCtrl.getDefault = async (req, res) => {
+dataCtrl.getData = async (req, res) => {
   const data = await Data.find();
-  console.log(data);
-  res.render('hello', { data });
+  res.status(200).json(data);
 };
 
 module.exports = dataCtrl;
