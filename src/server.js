@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 require('./config/database.config');
 
-// Settings
+// Settings /////s
 app.set('port', process.env.PORT || 4000);
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
