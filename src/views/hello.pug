@@ -5,4 +5,10 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Dashboard
   body
-  h1 mensaje
+    h1 mensaje
+    ul
+      each val in [1, 2, 3, 4, 5]
+        li= val
+      each object in data
+        li= object.timeStamp
+    
