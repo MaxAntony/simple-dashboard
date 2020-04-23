@@ -5,7 +5,7 @@ const DataSchema = new Schema(
     timeStamp: { type: Number },
     elapsed: { type: Number },
     label: { type: String },
-    responseCode: { type: Number },
+    responseCode: { type: Object },
     responseMessage: { type: String },
     threadName: { type: String },
     dataType: { type: String },

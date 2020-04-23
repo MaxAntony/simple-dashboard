@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="es")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -10,7 +10,7 @@ html(lang="en")
   body
     .grid-container
       .menu-icon
-        i.fas.fa-bars.header__menu
+        span &#9776;
       header.header
         .header__search Search...
         .header__avatar Your face
@@ -25,10 +25,8 @@ html(lang="en")
           li.sidenav__list-item Item Five
       main.main
         .main-header
-          .chart-header(style="height: 300px")
-            canvas(id="myChart", width="400", height="400")
-          //- .main-header__heading Hello User
-          //- .main-header__updates Recent Items
+          .main-header__heading Hello User
+          .main-header__updates Recent Items
         .main-overview
           .overviewcard
             .overviewcard__icon Overview
@@ -44,6 +42,10 @@ html(lang="en")
             .overviewcard__info Card
         .main-cards
           .card Card
+            .chart-header
+              h2 Chart
+              div
+                canvas(id="myChart")
           .card Card
           .card Card
       footer.footer
