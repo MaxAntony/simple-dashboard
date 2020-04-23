@@ -1,8 +1,8 @@
 const Data = require('../models/data.model');
-const { processDataForBarGraph } = require('../helpers/data.helper');
+const { process } = require('../helpers/data.helper');
 const dataCtrl = {};
 
-dataCtrl.getData = async (req, res) => {
+dataCtrl.countResponseCodes = async (req, res) => {
   const count200 = await Data.countDocuments({ responseCode: 200 });
   const count201 = await Data.countDocuments({ responseCode: 201 });
   const count500 = await Data.countDocuments({ responseCode: 500 });
@@ -17,6 +17,26 @@ dataCtrl.getData = async (req, res) => {
     labels: [...responseCodes],
   };
   res.json(response);
+};
+
+dataCtrl.success = async (req, res) => {
+  try {
+    // const logs = await Data.find().sort({ timeStamp: -1 }).select('timeStamp');
+    // const threadNames = await Data.distinct('threadName');
+    // const failureMessage = await Data.distinct('failureMessage');
+    // const success = await Data.countDocuments({ success: false });
+
+    // const last = await Data.findOne().sort({ timeStamp: 1 });
+    // const first = await Data.findOne().sort({ timeStamp: -1 });
+    const success = Data.countDocuments({ success: true }).exec();
+    const fail = Data.countDocuments({ success: false }).exec();
+    const resp = await Promise.all([success, fail]);
+
+    res.json({ success: resp[0], fail: resp[1] });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json(e);
+  }
 };
 
 module.exports = dataCtrl;

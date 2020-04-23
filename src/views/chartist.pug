@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="public/css/styles.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js")
+    script(src="public/js/scripts.js", defer)
+  body
+    //- .chart-container
+    //-   canvas(id="myChart")
+
+    .grid-container
+      header.header
+        .user-profile
+          .user-name
+            p Max Antony
+          .user-photo
+            img(src="public/img/picture.png", alt="pic")
+      aside.sidenav
+        p.title Dashboard
+        nav
+          ul
+            li
+              a(href="#") Menu item
+            li
+              a(href="#") Menu item
+            li
+              a(href="#") Menu item
+            li
+              a(href="#") Menu item
+      main.main
+        .container
+          .card
+            h3 Chart
+            //- TODO: al momento de reducir la ventana el chart no se redimensiona
+            canvas(id="myChart")
+          .card
+            h3 Chart
+            canvas(id="myChart2")
+      footer.footer
+        .copyright Software - 2019

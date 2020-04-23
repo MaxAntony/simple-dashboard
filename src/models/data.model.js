@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const DataSchema = new Schema(
   {
-    timeStamp: { type: Number },
+    timeStamp: { type: Date },
     elapsed: { type: Number },
     label: { type: String },
     responseCode: { type: Object },
