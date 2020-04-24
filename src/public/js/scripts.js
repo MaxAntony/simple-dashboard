@@ -1,4 +1,57 @@
 let url_api = 'http://localhost:4000/api/data';
+
+let ctx = document.getElementById('myChart').getContext('2d');
+let ctx2 = document.getElementById('myChart2').getContext('2d');
+
+fetch(`${url_api}/count-response-codes`)
+  .then(res => res.json())
+  .then(res => {
+    renderChart(res, ctx);
+  })
+  .catch(console.log);
+
+fetch(`${url_api}/avg-elapsed`)
+  .then(res => res.json())
+  .then(res => {
+    data = { labels: ['exito', 'error'], data: [res.success, res.fail] };
+    renderChart(data, ctx2);
+  })
+  .catch(console.log);
+
+function renderChart(data, canvas) {
+  let myChart2 = new Chart(canvas, {
+    type: 'pie',
+    data: {
+      labels: data.labels,
+      datasets: [
+        {
+          data: data.data, // Specify the data values array
+
+          borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color border
+          backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color background (Points and Fill)
+          borderWidth: 1, // Specify bar border width
+        },
+      ],
+    },
+    options: {
+      maintainAspectRatio: true,
+      responsive: true,
+      title: {
+        display: true,
+        text: 'Chart.js Line Chart',
+      },
+      tooltips: {
+        mode: 'index',
+        intersect: false,
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true,
+      },
+    },
+  });
+}
+
 // const menuIconEl = document.querySelector('.menu-icon');
 // const sidenavEl = document.querySelector('.sidenav');
 // const sidenavCloseEl = document.querySelector('.sidenav__close-icon');
@@ -16,9 +69,6 @@ let url_api = 'http://localhost:4000/api/data';
 // }
 
 // setEventListeners();
-
-let ctx = document.getElementById('myChart').getContext('2d');
-let ctx2 = document.getElementById('myChart2').getContext('2d');
 
 // var data = {
 //   labels: ['uno', 'dos', 'tres'],
@@ -40,57 +90,57 @@ let ctx2 = document.getElementById('myChart2').getContext('2d');
 //     },
 //   ],
 // };
-let myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ['Tokyo', 'Mumbai', 'Mexico City', 'Shanghai'],
-    datasets: [
-      {
-        data: [500, 50, 2424, 14040], // Specify the data values array
+// let myChart = new Chart(ctx, {
+//   type: 'pie',
+//   data: {
+//     labels: ['Tokyo', 'Mumbai', 'Mexico City', 'Shanghai'],
+//     datasets: [
+//       {
+//         data: [500, 50, 2424, 14040], // Specify the data values array
 
-        borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color border
-        backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color background (Points and Fill)
-        borderWidth: 1, // Specify bar border width
-      },
-    ],
-  },
-  options: {
-    responsive: true, // Instruct chart js to respond nicely.
-    maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height
-  },
-});
+//         borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color border
+//         backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color background (Points and Fill)
+//         borderWidth: 1, // Specify bar border width
+//       },
+//     ],
+//   },
+//   options: {
+//     responsive: true, // Instruct chart js to respond nicely.
+//     maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height
+//   },
+// });
 
-let myChart2 = new Chart(ctx2, {
-  type: 'pie',
-  data: {
-    labels: ['Tokyo', 'Mumbai', 'Mexico City', 'Shanghai'],
-    datasets: [
-      {
-        data: [500, 50, 2424, 14040], // Specify the data values array
+// let myChart2 = new Chart(ctx2, {
+//   type: 'pie',
+//   data: {
+//     labels: ['Tokyo', 'Mumbai', 'Mexico City', 'Shanghai'],
+//     datasets: [
+//       {
+//         data: [500, 50, 2424, 14040], // Specify the data values array
 
-        borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color border
-        backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color background (Points and Fill)
-        borderWidth: 1, // Specify bar border width
-      },
-    ],
-  },
-  options: {
-    maintainAspectRatio: true,
-    responsive: true,
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
-    tooltips: {
-      mode: 'index',
-      intersect: false,
-    },
-    hover: {
-      mode: 'nearest',
-      intersect: true,
-    },
-  },
-});
+//         borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color border
+//         backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'], // Add custom color background (Points and Fill)
+//         borderWidth: 1, // Specify bar border width
+//       },
+//     ],
+//   },
+//   options: {
+//     maintainAspectRatio: true,
+//     responsive: true,
+//     title: {
+//       display: true,
+//       text: 'Chart.js Line Chart',
+//     },
+//     tooltips: {
+//       mode: 'index',
+//       intersect: false,
+//     },
+//     hover: {
+//       mode: 'nearest',
+//       intersect: true,
+//     },
+//   },
+// });
 //get data
 // fetch('http://localhost:4000/api/data')
 //   .then(res => res.json())
