@@ -83,7 +83,6 @@
 .sidenav li:last-child {
   border-bottom: none;
 }
-
 .sidenav li:hover {
   background-color: #587de9;
 }
@@ -118,4 +117,10 @@
 }
 .footer .copyright {
   color: rgb(92, 92, 92);
+}
+
+/* fix the chart */
+/* there is a bug in chart.js with the grid system, solution here: https://github.com/jtblin/angular-chart.js/issues/614*/
+canvas {
+  width: 100% !important;
 }

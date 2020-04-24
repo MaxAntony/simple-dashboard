@@ -5,7 +5,7 @@ html(lang="es")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
     link(rel="stylesheet", href="public/css/styles.css")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js", defer)
     script(src="public/js/scripts.js", defer)
   body
     //- .chart-container
@@ -35,7 +35,7 @@ html(lang="es")
           .card
             h3 Chart
             //- TODO: al momento de reducir la ventana el chart no se redimensiona
-            canvas(id="myChart")
+            canvas(id="myChart", width="500px")
           .card
             h3 Chart
             canvas(id="myChart2")
